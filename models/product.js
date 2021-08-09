@@ -54,4 +54,4 @@ Product.init(
   }
 );
 
-module.exports = Category;
+module.exports = Product;
