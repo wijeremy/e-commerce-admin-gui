@@ -1,0 +1,24 @@
+
+POST http://localhost:3001/api/users/login
+Content-Type : application/json
+
+{
+   "email": "jjohnson@gmail.com",
+  "password": "test"
+}
+
+
+###
+POST http://localhost:3001/api/users/post
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiampvaG5zb25AZ21haWwuY29tIiwiaWF0IjoxNjI4NjM5MjIyLCJleHAiOjE2Mjg2NDY0MjJ9.KrLCiBd45uuepH6pRHi_hPerb4jtNOOEH2o5ShqbCCc
+
+###
+POST http://localhost:3001/api/users/register
+Content-Type: application/json
+
+{
+  "first_name": "James",
+  "last_name": "Johnson",
+  "email": "jjohnson@gmail.com",
+  "password": "test"
+}
