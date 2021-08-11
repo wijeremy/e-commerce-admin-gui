@@ -33,7 +33,7 @@ UserCartItem.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'usercartitem',
+    modelName: 'user_cart_item',
   }
 );
 
