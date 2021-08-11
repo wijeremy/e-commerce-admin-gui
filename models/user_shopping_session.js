@@ -29,7 +29,7 @@ UserShoppingSession.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'usershoppingsession',
+    modelName: 'user_shopping_session',
   }
 );
 
