@@ -13,9 +13,9 @@ Inventory.init(
       autoIncrement: true,
     },
     quantity: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   },
   {
     sequelize,
