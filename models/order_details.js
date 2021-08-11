@@ -21,7 +21,7 @@ OrderDetails.init(
       },
     },
     total: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
     payment_id: {
       type: DataTypes.STRING,
