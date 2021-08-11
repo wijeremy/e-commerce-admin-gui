@@ -13,7 +13,7 @@ OrderItems.init(
       autoIncrement: true,
     },
     order_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'order_details',
@@ -21,7 +21,7 @@ OrderItems.init(
       },
     },
     product_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'product',
