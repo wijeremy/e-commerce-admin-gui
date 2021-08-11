@@ -13,7 +13,7 @@ OrderDetails.init(
       autoIncrement: true,
     },
     user_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       references: {
         model: 'user',
@@ -21,10 +21,10 @@ OrderDetails.init(
       },
     },
     total: {
-      type: DataTypes.TEXT,
+      type: DataTypes.INTEGER,
     },
     payment_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       references: {
         model: 'payment',
@@ -37,7 +37,7 @@ OrderDetails.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'OrderDetails',
+    modelName: 'orderdetails',
   }
 );
 

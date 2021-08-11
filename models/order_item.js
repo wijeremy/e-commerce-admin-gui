@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Payment extends Model {}
+class OrderItem extends Model {}
 
-Payment.init(
+OrderItem.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,12 +16,12 @@ Payment.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    amount: {
+    product_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    status: {
-      type: DataTypes.STRING,
+    quantity: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   },
@@ -30,12 +30,8 @@ Payment.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'payment',
+    modelName: 'orderitem',
   }
 );
 
-<<<<<<< HEAD
-module.exports = payment;
-=======
-module.exports = Payment;
->>>>>>> main
+module.exports = OrderItem;
