@@ -16,7 +16,7 @@ CartItem.init(
       type: DataTypes.STRING,
       allowNull: false,
       references: {
-        model: 'session',
+        model: 'user_shopping_session',
         key: 'id',
       },
     },
