@@ -34,4 +34,8 @@ Payment.init(
   }
 );
 
+<<<<<<< HEAD
+module.exports = payment;
+=======
 module.exports = Payment;
+>>>>>>> main

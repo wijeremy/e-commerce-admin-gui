@@ -17,7 +17,7 @@ Product.init(
       allowNull: false,
     },
     desc: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
     SKU: {
       type: DataTypes.STRING,
@@ -38,11 +38,11 @@ Product.init(
       },
     },
     price: {
-      type: DataTypes.DECIMAL(10,2),
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       validate: {
-        isDecimal: true
-      }
+        isDecimal: true,
+      },
     },
   },
   {
