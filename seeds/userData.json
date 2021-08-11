@@ -1,0 +1,36 @@
+[
+    {
+        "first_name": "Jeremy",
+        "last_name": "Williams",
+        "email": "jeremydavwilliams@gmail.com",
+        "password": "password",
+        "is_admin": true
+    },
+    {
+        "first_name": "Benny",
+        "last_name": "Tran",
+        "email": "benjaminb.tran@gmail.com",
+        "password": "password",
+        "is_admin": true
+    },
+    {
+        "first_name": "James",
+        "last_name": "Johnson",
+        "email": "mrjam7@gmail.com",
+        "password": "password",
+        "is_admin": true
+    },
+    {
+        "first_name": "Javier",
+        "last_name": "Vilchis",
+        "email": "javivilchis@gmail.com",
+        "password": "password",
+        "is_admin": true
+    },
+    {
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@gmail.com",
+        "password": "password"
+    }
+]
