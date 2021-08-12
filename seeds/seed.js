@@ -14,17 +14,17 @@ const seedDatabase = async () => {
 		returning: true,
 	});
 
-	await Product.bulkCreate(productData, {
-		individualHooks: true,
-		returning: true,
-	});
-
 	await Inventory.bulkCreate(inventoryData, {
 		individualHooks: true,
 		returning: true,
 	});
 
 	await Category.bulkCreate(categoryDate, {
+		individualHooks: true,
+		returning: true,
+	});
+
+	await Product.bulkCreate(productData, {
 		individualHooks: true,
 		returning: true,
 	});
