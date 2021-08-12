@@ -13,7 +13,7 @@ OrderDetails.init(
       autoIncrement: true,
     },
     user_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'user',
@@ -24,7 +24,7 @@ OrderDetails.init(
       type: DataTypes.INTEGER,
     },
     payment_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'payment',

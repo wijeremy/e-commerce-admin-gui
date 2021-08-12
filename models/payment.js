@@ -15,10 +15,6 @@ Payment.init(
     order_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-        model: 'order',
-        key: 'id',
-      },
     },
     amount: {
       type: DataTypes.INTEGER,

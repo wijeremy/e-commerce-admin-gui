@@ -13,15 +13,15 @@ CartItem.init(
       autoIncrement: true,
     },
     session_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'session',
+        model: 'user_shopping_session',
         key: 'id',
       },
     },
     product_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'product',
