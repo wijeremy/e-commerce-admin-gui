@@ -7,7 +7,7 @@ const sequelize = require('./config/connection');
 var mysql = require('mysql2');
 
 const app = express();
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 3001;
 var connection = mysql.createConnection(process.env.JAWSDB_URL);
 
 const hbs = exphbs.create({});
