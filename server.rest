@@ -17,8 +17,12 @@ POST http://localhost:3001/api/users/register
 Content-Type: application/json
 
 {
-  "first_name": "James",
-  "last_name": "Johnson",
-  "email": "jjohnson@gmail.com",
+  "first_name": "Javier",
+  "last_name": "Vilchis",
+  "email": "javivilchis@gmail.com",
   "password": "test"
 }
+
+###
+GET http://localhost:3001/api/product/1
+Content-Type: application/json

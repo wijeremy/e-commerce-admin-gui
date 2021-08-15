@@ -46,6 +46,8 @@ Product.init(
     },
     img: {
       type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'default',
     },
   },
   {
