@@ -10,7 +10,7 @@ cloudinary.config({
      api_secret: process.env.CLOUD_SECRET,
 });
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
      try {
           const allGuitars = await Product.findAll();
           res.status(200).json(allGuitars);
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
           res.status(400).json(err);
      }
 });
-router.get('/:id', async (req, res) => {
+router.get('/:id', auth, async (req, res) => {
      try {
           const oneGuitar = await Product.findOne({
                Where: {
@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
      }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
      // create a new category
      try {
           const data = await cloudinary.uploader.upload(
