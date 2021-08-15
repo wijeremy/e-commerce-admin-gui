@@ -44,6 +44,10 @@ Product.init(
 				isDecimal: true,
 			},
 		},
+		img: {
+			type: DataTypes.STRING,
+			allowNull: true,
+		},
 	},
 	{
 		sequelize,

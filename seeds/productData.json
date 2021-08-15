@@ -5,7 +5,8 @@
 		"SKU": "SKU0000001",
 		"category_id": 1,
 		"inventory_id": 1,
-		"price": 859.99
+		"price": 859.99,
+		"img": "fender-player-stratocaster-hss-plus-top-maple_mlcsco.jpg"
 	},
 	{
 		"name": "Fender FA-135CE Concert Acoustic-Electric Guitar Natural",
@@ -13,14 +14,16 @@
 		"SKU": "SKU0000002",
 		"category_id": 2,
 		"inventory_id": 2,
-		"price": 209.99
+		"price": 209.99,
+		"img": "fender-fa-135ce-concert-acoustic-electric-guitar_vu59ck.jpg"
 	},
 	{
 		"name": "Fender Special Edition Deluxe PJ Bass  Olympic White",
 		"desc": "We've teamed up with Fender to bring you another great-sounding, unique one-off bass loaded with premium features. The exclusive Deluxe PJ Bass has a Precision Bass body with the neck of a '70s Jazz Bass. It features the appointments you've come to love about most Fender instruments like an alder body, urethane finish, maple fingerboard and a Fender high mass bass bridge. Perhaps the most interesting feature aside from the mash-up of P Bass body and J Bass neck is the combination of Precision and Jazz Bass pickups. With this combo you get the best of both worlds. The growl of the passive J Bass bridge pickup blends perfectly with the passive P Bass split single coil neck pickup with the help of the volume and tone controls.",
-		"SKU": "SKU0000001",
+		"SKU": "SKU0000003",
 		"category_id": 3,
 		"inventory_id": 3,
-		"price": 1049.99
+		"price": 1049.99,
+		"img": "fender-special-edition-deluxe-pj-bass_sbefzn.jpg"
 	}
 ]
