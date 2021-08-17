@@ -7,32 +7,29 @@ const inventoryData = require('./inventory.json');
 const categoryDate = require('./category.json');
 
 const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
+     await sequelize.sync({ force: true });
 
-  await User.bulkCreate(userData, {
-    individualHooks: true,
-    returning: true,
-  });
+     await User.bulkCreate(userData, {
+          individualHooks: true,
+          returning: true,
+     });
 
-  await Inventory.bulkCreate(inventoryData, {
-    individualHooks: true,
-    returning: true,
-  });
+     await Inventory.bulkCreate(inventoryData, {
+          individualHooks: true,
+          returning: true,
+     });
 
-  await Category.bulkCreate(categoryDate, {
-    individualHooks: true,
-    returning: true,
-  });
+     await Category.bulkCreate(categoryDate, {
+          individualHooks: true,
+          returning: true,
+     });
 
-  for (let i = 0; i < productData.length; i++) {
-    const filePath = productData[i].img;
-  }
-  await Product.bulkCreate(productData, {
-    individualHooks: true,
-    returning: true,
-  });
+     await Product.bulkCreate(productData, {
+          individualHooks: true,
+          returning: true,
+     });
 
-  process.exit(0);
+     process.exit(0);
 };
 
 seedDatabase();
