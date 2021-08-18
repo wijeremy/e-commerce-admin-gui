@@ -1,71 +1,79 @@
+<!-- Outer Row -->
+<div class="row justify-content-center">
 
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
+	<div class="col-xl-10 col-lg-12 col-md-9">
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
+		<div class="card o-hidden border-0 shadow-lg my-5">
+			<div class="card-body p-0">
+				<!-- Nested Row within Card Body -->
+				<div class="row">
+					<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+					<div class="col-lg-6">
+						<div class="p-5">
+							<div class="text-center">
+								<h1 class="h4 text-gray-900 mb-4">Welcome to {{> companyname}}</h1>
+							</div>
+							<form class="form login-form" id="login-form">
+								<div class="form-group">
+									<input type="email" class="form-control form-control-user" id="email-login"
+										aria-describedby="emailHelp" placeholder="Enter Email Address...">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control form-control-user" id="password-login"
+										placeholder="Password">
+								</div>
+								<hr>
 
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome to {{> companyname}}</h1>
-                                    </div>
-								<form class="form login-form" id="login-form">
-									<div class="form-group">
-									<input type="email" class="form-control form-control-user" id="email-login" aria-describedby="emailHelp" placeholder="Enter Email Address...">
-									</div>
-									<div class="form-group">
-									<input type="password" class="form-control form-control-user" id="password-login" placeholder="Password">
-									</div>
-									<hr>
-								
-									<button class='btn btn-primary btn-user btn-block' type='submit'>login</button>
-								</form>
-                                       
-                                      	<form class='form signup-form' id="signup-form">
-									<div class="form-group">
-										<input type="text" class="form-control form-control-user" id="first-name-signup" aria-describedby="firstNameHelp" placeholder="Enter Your First Name">
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control form-control-user" id="first-name-signup" aria-describedby="firstNameHelp" placeholder="Eneter Your Last Name">
-									</div>
-									<div class="form-group">
-										<input type="email" class="form-control form-control-user" id="email-login" aria-describedby="emailHelp" placeholder="Enter Email Address...">
-									</div>
-									<div class="form-group">
-										<input type="password" class="form-control form-control-user" id="password-login" placeholder="Password">
-									</div>
-										<hr>
-									
-									<button class='btn btn-primary btn-user btn-block' type='submit'>login</button>
-								</form>
-                                       
-                                    
-                                    <hr>
-                                  
-                                    <div class="text-center">
-                                        <span class="small create-account">Create an Account!</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+								<button class='btn btn-primary btn-user btn-block' type='submit'>Login</button>
+								<hr>
 
-            </div>
+								<div class="text-center">
+									<span class="small create-account">Create an Account!</span>
+								</div>
+							</form>
 
-        </div>
+							<form class='form signup-form' id="signup-form">
+								<div class="form-group">
+									<input type="text" class="form-control form-control-user" id="first-name-signup"
+										aria-describedby="firstNameHelp" placeholder="Enter Your First Name">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control form-control-user" id="last-name-signup"
+										aria-describedby="firstNameHelp" placeholder="Eneter Your Last Name">
+								</div>
+								<div class="form-group">
+									<input type="email" class="form-control form-control-user" id="email-signup"
+										aria-describedby="emailHelp" placeholder="Enter Email Address...">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control form-control-user" id="password-signup"
+										placeholder="Password">
+								</div>
+								<hr>
+
+								<button class='btn btn-primary btn-user btn-block' type='submit'>Create Account</button>
+								<hr>
+
+								<div class="text-center">
+									<span class="small login">Already have an account?  Log In</span>
+								</div>
+							</form>
+							<hr>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
 
 
 
 
-<!-- 
-
-<div class='row' id="loginold">
+{{!-- <div class='row' id="loginold">
 	<div class='col-md-6'>
 		<h2>Login</h2>
 
@@ -108,6 +116,4 @@
 			</div>
 		</form>
 	</div>
-</div>
-
--->
+</div> --}}
