@@ -60,11 +60,11 @@ router.get('/product/:id', async (req, res) => {
   }
 });
 
-router.get('/user/:id', auth, async (req, res) => {
+router.get('/user', auth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: CartItem }],
+      //include: [{ model: CartItem }],
     });
 
     const user = userData.get({ plain: true });
