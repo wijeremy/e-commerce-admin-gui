@@ -10,7 +10,7 @@
       <div class='col-md-12 col-lg-12 col-xl-12'>
         <div class='card m-b-30'>
           <div class='card-header'>
-            <h5 class='card-title'>Cart</h5>
+            <h5 class='card-title'>Cart for: {{last_name}}</h5>
           </div>
           <div class='card-body'>
             <div class='row justify-content-center'>
@@ -31,84 +31,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope='row'>1</th>
-                            <td><a href='#' class='text-danger'><i
-                                  class='ri-delete-bin-3-line'
-                                ></i></a></td>
-                            <td><img
-                                src='https://themesbox.in/admin-templates/olian/html/light-vertical/assets/images/ecommerce/product_01.svg'
-                                class='img-fluid'
-                                width='35'
-                                alt='product'
-                              /></td>
-                            <td>Apple Watch</td>
-                            <td>
-                              <div class='form-group mb-0'>
-                                <input
-                                  type='number'
-                                  class='form-control cart-qty'
-                                  name='cartQty1'
-                                  id='cartQty1'
-                                  value='1'
-                                />
-                              </div>
-                            </td>
-                            <td>$10</td>
-                            <td class='text-right'>$500</td>
-                          </tr>
-                          <tr>
-                            <th scope='row'>2</th>
-                            <td><a href='#' class='text-danger'><i
-                                  class='ri-delete-bin-3-line'
-                                ></i></a></td>
-                            <td><img
-                                src='https://themesbox.in/admin-templates/olian/html/light-vertical/assets/images/ecommerce/product_02.svg'
-                                class='img-fluid'
-                                width='35'
-                                alt='product'
-                              /></td>
-                            <td>Apple iPhone</td>
-                            <td>
-                              <div class='form-group mb-0'>
-                                <input
-                                  type='number'
-                                  class='form-control cart-qty'
-                                  name='cartQty2'
-                                  id='cartQty2'
-                                  value='1'
-                                />
-                              </div>
-                            </td>
-                            <td>$20</td>
-                            <td class='text-right'>$200</td>
-                          </tr>
-                          <tr>
-                            <th scope='row'>3</th>
-                            <td><a href='#' class='text-danger'><i
-                                  class='ri-delete-bin-3-line'
-                                ></i></a></td>
-                            <td><img
-                                src='https://themesbox.in/admin-templates/olian/html/light-vertical/assets/images/ecommerce/product_03.svg'
-                                class='img-fluid'
-                                width='35'
-                                alt='product'
-                              /></td>
-                            <td>Apple iPad</td>
-                            <td>
-                              <div class='form-group mb-0'>
-                                <input
-                                  type='number'
-                                  class='form-control cart-qty'
-                                  name='cartQty3'
-                                  id='cartQty3'
-                                  value='1'
-                                />
-                              </div>
-                            </td>
-                            <td>$30</td>
-                            <td class='text-right'>$300</td>
-                          </tr>
+                          {{>cartRows}}
                         </tbody>
                       </table>
                     </div>
@@ -120,24 +43,6 @@
                       >
                         <div class='order-note'>
                           <form>
-                            <div class='form-group'>
-                              <div class='input-group'>
-                                <input
-                                  type='search'
-                                  class='form-control'
-                                  placeholder='Coupon Code'
-                                  aria-label='Search'
-                                  aria-describedby='button-addonTags'
-                                />
-                                <div class='input-group-append'>
-                                  <button
-                                    class='input-group-text'
-                                    type='submit'
-                                    id='button-addonTags'
-                                  >Apply</button>
-                                </div>
-                              </div>
-                            </div>
                             <div class='form-group'>
                               <label for='specialNotes'>Special Note for this
                                 order:</label>
@@ -158,18 +63,6 @@
                         <div class='order-total table-responsive'>
                           <table class='table table-borderless text-right'>
                             <tbody>
-                              <tr>
-                                <td>Sub Total :</td>
-                                <td>$1000.00</td>
-                              </tr>
-                              <tr>
-                                <td>Shipping :</td>
-                                <td>$0.00</td>
-                              </tr>
-                              <tr>
-                                <td>Tax(18%) :</td>
-                                <td>$180.00</td>
-                              </tr>
                               <tr>
                                 <td class='f-w-7 font-18'><h4>Amount :</h4></td>
                                 <td class='f-w-7 font-18'><h4>$1180.00</h4></td>
