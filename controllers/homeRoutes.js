@@ -1,5 +1,13 @@
 const router = require('express').Router();
-const { User, Product, CartItem } = require('../models');
+const {
+  Product,
+  Inventory,
+  User,
+  OrderDetails,
+  OrderItems,
+  UserShoppingSession,
+  CartItem,
+} = require('../models');
 const sequelize = require('../config/connection');
 const auth = require('../utils/auth');
 
@@ -64,11 +72,10 @@ router.get('/user', auth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      //include: [{ model: CartItem }],
+      include: [{ model: UserShoppingSession }],
     });
-
     const user = userData.get({ plain: true });
-
+    console.log(user);
     res.render('cart', {
       ...user,
       layout: 'user',
