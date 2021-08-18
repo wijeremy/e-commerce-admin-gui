@@ -23,14 +23,6 @@ OrderDetails.init(
     total: {
       type: DataTypes.INTEGER,
     },
-    payment_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'payment',
-        key: 'id',
-      },
-    },
   },
   {
     sequelize,
