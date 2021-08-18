@@ -1,5 +1,13 @@
 const router = require('express').Router();
-const { User, Product, CartItem } = require('../models');
+const {
+  Product,
+  Inventory,
+  User,
+  OrderDetails,
+  OrderItems,
+  UserShoppingSession,
+  CartItem,
+} = require('../models');
 const sequelize = require('../config/connection');
 const auth = require('../utils/auth');
 
@@ -24,10 +32,9 @@ router.get('/', async (req, res) => {
 router.get('/home', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const productData = await Product.findAll({
-      include: [{ User }],
-      attributes: { exclude: ['password'] },
-    });
+
+    const productData = await Product.findAll({});
+
 
     // Serialize data so the template can read it
     const products = productData.map((product) => product.get({ plain: true }));
@@ -63,22 +70,20 @@ router.get('/product/:id', async (req, res) => {
   }
 });
 
-router.get('/user/:id', async (req, res) => {
+
+router.get('/user', auth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.params.id, {
-      include: [
-        {
-          model: Product,
-          CartItem,
-        },
-      ],
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: UserShoppingSession }],
     });
-
     const user = userData.get({ plain: true });
-
+    console.log(user);
     res.render('cart', {
       ...user,
       layout: 'user',
+      logged_in: true,
+
     });
   } catch (err) {
     res.status(500).json(err);
