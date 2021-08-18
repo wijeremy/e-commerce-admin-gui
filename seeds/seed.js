@@ -7,6 +7,7 @@ const {
 	OrderDetails,
 	UserShoppingSession,
 	CartItem,
+	OrderItems,
 } = require('../models');
 
 const userData = require('./userData.json');
@@ -16,6 +17,7 @@ const categoryDate = require('./category.json');
 const orderDetailsData = require('./orderDetailsData.json');
 const userShoppingSessionData = require('./userShoppingSessionData.json');
 const cartItemData = require('./cartItemData.json');
+const orderItemsData = require('./orderItemsData.json');
 
 const seedDatabase = async () => {
 	await sequelize.sync({ force: true });
@@ -51,6 +53,11 @@ const seedDatabase = async () => {
 	});
 
 	await CartItem.bulkCreate(cartItemData, {
+		individualHooks: true,
+		returning: true,
+	});
+
+	await OrderItems.bulkCreate(orderItemsData, {
 		individualHooks: true,
 		returning: true,
 	});
