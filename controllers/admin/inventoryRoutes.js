@@ -4,7 +4,7 @@ const { Product, Inventory } = require('../../models');
 const auth = require('../../utils/auth');
 require('dotenv').config();
 
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const invData = await Product.findAll({
       include: [
