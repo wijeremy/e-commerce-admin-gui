@@ -32,7 +32,9 @@ router.get('/', async (req, res) => {
 router.get('/home', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
+
     const productData = await Product.findAll({});
+
 
     // Serialize data so the template can read it
     const products = productData.map((product) => product.get({ plain: true }));
@@ -68,6 +70,7 @@ router.get('/product/:id', async (req, res) => {
   }
 });
 
+
 router.get('/user', auth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
@@ -80,6 +83,7 @@ router.get('/user', auth, async (req, res) => {
       ...user,
       layout: 'user',
       logged_in: true,
+
     });
   } catch (err) {
     res.status(500).json(err);
