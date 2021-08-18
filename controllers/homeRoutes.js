@@ -6,6 +6,11 @@ const auth = require('../utils/auth');
 //need to get all of the products from database
 router.get('/', async (req, res) => {
   try {
+    // Get all projects and JOIN with user data
+    const productData = await Product.findAll({});
+
+    // Serialize data so the template can read it
+    const products = productData.map((product) => product.get({ plain: true }));
     // Pass serialized data and session flag into template
     res.render('login', {
       products,
