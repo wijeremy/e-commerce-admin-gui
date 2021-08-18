@@ -1,16 +1,33 @@
 const router = require('express').Router();
-const User = require('../models/user');
+const { User, Product } = require('../models');
 const sequelize = require('../config/connection');
 const verifyToken = require('../utils/auth');
 
 //need to get all of the products from database
 router.get('/', async (req, res) => {
-  res.render('home', { layout: 'user' });
+  try {
+    // Get all projects and JOIN with user data
+    const productData = await Product.findAll({});
+
+    // Serialize data so the template can read it
+    const products = productData.map((product) => product.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('home', {
+      ...products,
+      layout: 'user',
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-
+  if (verifyToken) {
+    res.redirect('/');
+    return;
+  }
   res.render('login');
 });
 
