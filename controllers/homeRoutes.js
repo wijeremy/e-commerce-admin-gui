@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+
   res.render('login', {
     layout: 'login',
   });
@@ -35,7 +36,7 @@ router.get('/product/:id', async (req, res) => {
     const product = productData.get({ plain: true });
 
     res.render('product', {
-      ...product,
+      product,
       layout: 'user',
     });
   } catch (err) {
