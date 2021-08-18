@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const { User, Product } = require('../models');
+const { User, Product, CartItem } = require('../models');
 const sequelize = require('../config/connection');
-const verifyToken = require('../utils/auth');
+const auth = require('../utils/auth');
 
 //need to get all of the products from database
 router.get('/', async (req, res) => {
@@ -12,9 +12,9 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const products = productData.map((product) => product.get({ plain: true }));
     // Pass serialized data and session flag into template
-    res.render('home', {
+    res.render('login', {
       products,
-      layout: 'user',
+      layout: 'login',
     });
   } catch (err) {
     res.status(500).json(err);
@@ -22,12 +22,10 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (verifyToken) {
-    res.redirect('/');
-    return;
-  }
-  res.render('login');
+
+  res.render('login', {
+    layout: 'login',
+  });
 });
 
 //need to wire up the product details page
@@ -39,6 +37,28 @@ router.get('/product/:id', async (req, res) => {
 
     res.render('product', {
       product,
+      layout: 'user',
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/user/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {
+      include: [
+        {
+          model: Product,
+          CartItem,
+        },
+      ],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('cart', {
+      ...user,
       layout: 'user',
     });
   } catch (err) {

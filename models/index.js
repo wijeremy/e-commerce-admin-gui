@@ -90,6 +90,7 @@ OrderItems.belongsTo(OrderDetails, {
 });
 
 module.exports = {
+  CartItem,
   Category,
   Inventory,
   OrderDetails,
