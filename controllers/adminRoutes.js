@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
           res.json(err);
      });
      const users = userData.map((user) => user.get({ plain: true }));
-     res.render('homepage', { layout: 'user' });
+     res.render('homepage', { layout: 'main' });
 });
 
 module.exports = router;
