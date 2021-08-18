@@ -5,7 +5,6 @@ const OrderDetails = require('./order_details');
 const OrderItems = require('./order_items');
 const Payment = require('./payment');
 const Product = require('./product');
-const UserCartItem = require('./user_cart_item');
 const UserShoppingSession = require('./user_shopping_session');
 const User = require('./user');
 
@@ -91,12 +90,12 @@ OrderItems.belongsTo(OrderDetails, {
 });
 
 module.exports = {
+  CartItem,
   Category,
   Inventory,
   OrderDetails,
   Payment,
   Product,
-  UserCartItem,
   UserShoppingSession,
   User,
 };

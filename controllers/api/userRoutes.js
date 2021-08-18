@@ -4,8 +4,9 @@ const { User } = require('../../models');
 const bcrypt = require('bcrypt');
 const auth = require('../../utils/auth');
 require('dotenv').config();
+
 // Register
-router.post('/register', async (req, res) => {
+router.post('/', async (req, res) => {
 	// Our register logic starts here
 	try {
 		// Get user input
@@ -18,10 +19,12 @@ router.post('/register', async (req, res) => {
 
 		// check if user already exist
 		// Validate if user exist in our database
-		const oldUser = await User.findOne({ where: { password } });
+		const oldUser = await User.findOne({ where: { email } });
 
 		if (oldUser) {
-			return res.status(409).send('User Already Exist. Please Login');
+			return res
+				.status(409)
+				.send('Could not create an account with that information');
 		}
 
 		//Encrypt user password
@@ -54,26 +57,9 @@ router.post('/register', async (req, res) => {
 	// Our register logic ends here
 });
 
-router.post('/post', auth, async (req, res) => {
-	console.log('no here!');
-
-	res.json('hey');
-	// jwt.verify(req.token, process.env.TOKEN_KEY, (err, authData) => {
-	//      if(err) {
-	//           res.sendStatus(403);
-	//      } else {
-	//           res.json({
-	//                message: 'Post created...',
-	//                authData
-	//            });
-	//      }
-	// });
-});
-
 // Login
 router.post('/login', async (req, res) => {
 	// Our login logic starts here
-	console.log(req.body);
 	try {
 		// Get user input
 		const { email, password } = req.body;
@@ -109,10 +95,6 @@ router.post('/login', async (req, res) => {
 		console.log(err);
 	}
 	// Our register logic ends here
-});
-
-router.get('/welcome', auth, (req, res) => {
-	res.status(200).send('Welcome 🙌 ');
 });
 
 module.exports = router;

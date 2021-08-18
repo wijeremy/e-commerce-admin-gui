@@ -5,6 +5,7 @@ const auth = require('../utils/auth');
 
 //need to get all of the products from database
 router.get('/', async (req, res) => {
+<<<<<<< HEAD
 	try {
 		// Get all projects and JOIN with user data
 		const productData = await Product.findAll({});
@@ -25,10 +26,45 @@ router.get('/login', (req, res) => {
 	res.render('login', {
 		layout: 'login',
 	});
+=======
+  try {
+    // Pass serialized data and session flag into template
+    res.render('login', {
+      products,
+      layout: 'login',
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/home', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const productData = await Product.findAll({});
+
+    // Serialize data so the template can read it
+    const products = productData.map((product) => product.get({ plain: true }));
+    // Pass serialized data and session flag into template
+    res.render('home', {
+      products,
+      layout: 'user',
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/login', (req, res) => {
+  res.render('login', {
+    layout: 'login',
+  });
+>>>>>>> main
 });
 
 //need to wire up the product details page
 router.get('/product/:id', async (req, res) => {
+<<<<<<< HEAD
 	try {
 		const productData = await Product.findByPk(req.params.id);
 
@@ -63,6 +99,42 @@ router.get('/user/:id', async (req, res) => {
 	} catch (err) {
 		res.status(500).json(err);
 	}
+=======
+  try {
+    const productData = await Product.findByPk(req.params.id);
+
+    const product = productData.get({ plain: true });
+
+    res.render('product', {
+      product,
+      layout: 'user',
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/user/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {
+      include: [
+        {
+          model: Product,
+          CartItem,
+        },
+      ],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('cart', {
+      ...user,
+      layout: 'user',
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+>>>>>>> main
 });
 
 module.exports = router;
