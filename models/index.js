@@ -3,7 +3,6 @@ const Category = require('./category');
 const Inventory = require('./inventory');
 const OrderDetails = require('./order_details');
 const OrderItems = require('./order_items');
-const Payment = require('./payment');
 const Product = require('./product');
 const UserShoppingSession = require('./user_shopping_session');
 const User = require('./user');
@@ -44,30 +43,12 @@ CartItem.belongsTo(Product, {
   foreignKey: 'product_id',
 });
 
-Payment.hasOne(OrderDetails, {
-  foreignKey: 'payment_id',
-  onDelete: 'CASCADE',
-});
-
-OrderDetails.belongsTo(Payment, {
-  foreignKey: 'payment_id',
-});
-
 User.hasOne(UserShoppingSession, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
 
 UserShoppingSession.belongsTo(User, {
-  foreignKey: 'user_id',
-});
-
-User.hasMany(Payment, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE',
-});
-
-Payment.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
@@ -104,7 +85,6 @@ module.exports = {
   Inventory,
   OrderDetails,
   OrderItems,
-  Payment,
   Product,
   UserShoppingSession,
   User,
