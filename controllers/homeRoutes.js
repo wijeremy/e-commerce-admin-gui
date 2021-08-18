@@ -12,9 +12,9 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const products = productData.map((product) => product.get({ plain: true }));
     // Pass serialized data and session flag into template
-    res.render('home', {
+    res.render('login', {
       products,
-      layout: 'user',
+      layout: 'login',
     });
   } catch (err) {
     res.status(500).json(err);
