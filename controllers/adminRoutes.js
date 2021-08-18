@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   res.render('homepage', { layout: 'main' });
 });
 
-router.get('/inventory', auth, async (req, res) => {
+router.get('/inventory', async (req, res) => {
   try {
     const invData = await Product.findAll({
       include: [

@@ -88,25 +88,41 @@
                     aria-controls='dataTable'
                     rowspan='1'
                     colspan='1'
-                    aria-label='Salary: activate to sort column ascending'
+                    aria-label='On Order: activate to sort column ascending'
                     style='width: 128px;'
-                  >On Order</th></tr>
+                  >On Order</th>
+                  <th
+                    class='sorting'
+                    tabindex='0'
+                    aria-controls='dataTable'
+                    rowspan='1'
+                    colspan='1'
+                    aria-label='Update: activate to sort column ascending'
+                    style='width: 128px;'
+                  >Update</th>
+                  <th
+                    class='sorting'
+                    tabindex='0'
+                    aria-controls='dataTable'
+                    rowspan='1'
+                    colspan='1'
+                    aria-label='Delete: activate to sort column ascending'
+                    style='width: 128px;'
+                  >Delete</th></tr>
               </thead>
               <tfoot>
-                <tr><th rowspan='1' colspan='1'>Name</th><th
-                    rowspan='1'
-                    colspan='1'
-                  >Description</th><th rowspan='1' colspan='1'>Image</th><th
-                    rowspan='1'
-                    colspan='1'
-                  >Price</th><th rowspan='1' colspan='1'>Stock</th><th
-                    rowspan='1'
-                    colspan='1'
-                  >On Order</th></tr>
+                <tr>
+                    <th rowspan='1' colspan='1'>Name</th>
+                    <th rowspan='1'colspan='1'>Description</th>
+                    <th rowspan='1' colspan='1'>Image</th>
+                    <th rowspan='1'colspan='1'>Price</th>
+                    <th rowspan='1' colspan='1'>Stock</th>
+                    <th rowspan='1'colspan='1'>On Order</th>
+                    <th rowspan='1'colspan='1'>Update</th>
+                    <th rowspan='1'colspan='1'>Delete</th>
+                </tr>
               </tfoot>
-            {{!-- here we look to the items partial --}}
               <tbody>{{>items}}</tbody>
-
             </table></div></div><div class='row'><div
             class='col-sm-12 col-md-5'
           ><div

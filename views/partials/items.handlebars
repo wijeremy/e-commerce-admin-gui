@@ -1,10 +1,10 @@
-
-                                        {{#each inventory as |item|}}
-                                        <tr class="even">
-                                            <td class="sorting_1">{{item.name}}</td>
-                                            <td>{{item.desc}}</td>
-                                            <td>{{item.url}}</td>
-                                            <td>{{item.price}}</td>
-                                            <td>filler</td>
-                                            <td>text</td>
-                                        </tr>
+{{#each inventory as |item|}}
+  <tr>
+    <td class='sorting_1'>{{item.name}}</td>
+    <td>{{item.desc}}</td>
+    <td></td>
+    <td>${{item.price}}</td>
+    <td>{{item.quantity}}</td>
+    <td>text</td>
+  </tr>
+{{/each}}
