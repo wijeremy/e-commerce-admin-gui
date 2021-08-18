@@ -89,11 +89,21 @@ OrderItems.belongsTo(OrderDetails, {
   foreignKey: 'order_id',
 });
 
+Product.hasMany(OrderItems, {
+  foreignKey: 'product_id',
+  onDelete: 'CASCADE',
+});
+
+OrderItems.belongsTo(Product, {
+  foreignKey: 'product_id',
+});
+
 module.exports = {
   CartItem,
   Category,
   Inventory,
   OrderDetails,
+  OrderItems,
   Payment,
   Product,
   UserShoppingSession,

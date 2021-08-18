@@ -1,19 +1,10 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const jwt = require('jsonwebtoken');
-const { Product, Inventory, User } = require('../models');
-const auth = require('../utils/auth');
+const { Product, Inventory } = require('../../models');
+const auth = require('../../utils/auth');
 require('dotenv').config();
 
 router.get('/', async (req, res) => {
-  const userData = await User.findAll().catch((err) => {
-    res.json(err);
-  });
-  const users = userData.map((user) => user.get({ plain: true }));
-  res.render('homepage', { layout: 'main' });
-});
-
-router.get('/inventory', async (req, res) => {
   try {
     const invData = await Product.findAll({
       include: [
@@ -34,5 +25,3 @@ router.get('/inventory', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-module.exports = router;
