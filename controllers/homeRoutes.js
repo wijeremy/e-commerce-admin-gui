@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Product } = require('../models');
+const { User, Product, CartItem } = require('../models');
 const sequelize = require('../config/connection');
 const auth = require('../utils/auth');
 
@@ -36,6 +36,28 @@ router.get('/product/:id', async (req, res) => {
 
     res.render('product', {
       ...product,
+      layout: 'user',
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/user/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {
+      include: [
+        {
+          model: Product,
+          CartItem,
+        },
+      ],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('cart', {
+      ...user,
       layout: 'user',
     });
   } catch (err) {
