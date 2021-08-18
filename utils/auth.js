@@ -1,20 +1,10 @@
-require("dotenv").config();
-const jwt = require("jsonwebtoken");
-
-const verifyToken = (req, res, next) => {
-     const authHeader = req.headers['authorization'];
-     const token = authHeader;
-    
-     if(token == null) return res.sendStatus(401);
-     
-     jwt.verify(token, process.env.TOKEN_KEY, (err, user) => {
-          
-          if(err) return res.sendStatus(403);
-          
-          req.user = user;
-          return next();
-     })
-
+const auth = (req, res, next) => {
+  // If the user is not logged in, redirect the request to the login route
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+  } else {
+    next();
+  }
 };
 
-module.exports = verifyToken;
+module.exports = auth;

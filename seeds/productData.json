@@ -1,26 +1,29 @@
 [
 	{
-		"name": "Fender Player Stratocaster HSS Plus Top Maple Fingerboard Limited-Edition Electric Guitar Blue Burst",
+		"name": "Fender Player Stratocaster HSS Plus Top Maple Fingerboard Limited-Edition Electric Guitar  Sienna Sunburst",
 		"desc": "Over the decades, players have been continually inspired by the sound of a Strat. From the clarity of the high end, through the gut punch of the mids and the solid lows, it's a sound that's helped define what an electric guitar should be—versatile enough for any style and broad enough for any player to find an individual voice. This Limited-Edition Player Series Stratocaster puts all of the classic features of the Strat at your fingertips while adding a modern edge, plus a bridge position humbucker for a little more rock-and-roll attitude. With a beautifully flamed maple top over a solid alder body, a 22-fret maple fingerboard with a contemporary 9.5 radius for easy bending and an updated 2-point fulcrum tremolo bridge, the Player Series Stratocaster Plus Top is primed and ready to carry you along your musical voyage.",
 		"SKU": "SKU0000001",
 		"category_id": 1,
 		"inventory_id": 1,
-		"price": 859.99
+		"price": 859.99,
+		"img": "https://res.cloudinary.com/dcof2fns3/image/upload/v1628959208/products/fender-player-stratocaster-hss-plus-top-maple_mlcsco.jpg"
 	},
 	{
-		"name": "Fender FA-135CE Concert Acoustic-Electric Guitar Natural",
+		"name": "Fender FA-135CE Concert Acoustic-Electric Guitar  Natural",
 		"desc": "Fender The Fender FA-135CE Concert Acoustic Guitar is built on the concert-style platform for a sleek, modern design. The laminated spruce top features X-bracing for bright, punchy tone, ideal for lead guitar. The neck is nato, and the back and sides are laminated basswood-both tonewoods known for letting the mid and high frequencies sing out. Thanks to the basswood back and sides, the Fender FA-135CE is very light, avoiding strain to your neck or back during prolonged playing. The chrome tuners offer precision tuning. The guitar also features an impressive electronics system, featuring the Fishman ION-T preamp and built-in chromatic tuner, which provides lightning-fast tuning and amplification. The preamp features a volume dial, phase and contour buttons, and a tuner power button.",
 		"SKU": "SKU0000002",
 		"category_id": 2,
 		"inventory_id": 2,
-		"price": 209.99
+		"price": 209.99,
+		"img": "https://res.cloudinary.com/dcof2fns3/image/upload/v1628957231/products/fender-fa-135ce-concert-acoustic-electric-guitar_vu59ck.jpg"
 	},
 	{
 		"name": "Fender Special Edition Deluxe PJ Bass  Olympic White",
 		"desc": "We've teamed up with Fender to bring you another great-sounding, unique one-off bass loaded with premium features. The exclusive Deluxe PJ Bass has a Precision Bass body with the neck of a '70s Jazz Bass. It features the appointments you've come to love about most Fender instruments like an alder body, urethane finish, maple fingerboard and a Fender high mass bass bridge. Perhaps the most interesting feature aside from the mash-up of P Bass body and J Bass neck is the combination of Precision and Jazz Bass pickups. With this combo you get the best of both worlds. The growl of the passive J Bass bridge pickup blends perfectly with the passive P Bass split single coil neck pickup with the help of the volume and tone controls.",
-		"SKU": "SKU0000001",
+		"SKU": "SKU0000003",
 		"category_id": 3,
 		"inventory_id": 3,
-		"price": 1049.99
+		"price": 1049.99,
+		"img": "https://res.cloudinary.com/dcof2fns3/image/upload/v1628957244/products/fender-special-edition-deluxe-pj-bass_sbefzn.jpg"
 	}
 ]
