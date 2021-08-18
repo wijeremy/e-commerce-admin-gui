@@ -1,0 +1,16 @@
+<!-- Section-->
+<div class='container px-4 px-lg-5 mt-5'>
+     <div
+          class='row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center'
+     >
+    <h1 class="h3 mb-0 text-gray-800">Orders</h1>
+  
+{{#each orders as |order|}}
+    <div class="col">{{order.user_id}}</div>
+    <div class="col">{{order.order_details}}</div>
+    <div class="col">${{order.order_items.product_id}}</div>
+    <div class="col">{{order.order_id}}</div>
+{{/each}}
+
+     </div>
+</div>
