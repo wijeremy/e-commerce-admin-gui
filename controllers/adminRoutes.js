@@ -1,7 +1,13 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const jwt = require('jsonwebtoken');
-const { Product, Inventory, User } = require('../models');
+const {
+  Product,
+  Inventory,
+  User,
+  OrderDetails,
+  OrderItems,
+} = require('../models');
 const auth = require('../utils/auth');
 require('dotenv').config();
 
@@ -13,7 +19,7 @@ router.get('/', async (req, res) => {
   res.render('homepage', { layout: 'main' });
 });
 
-router.get('/inventory', async (req, res) => {
+router.get('/inventory', auth, async (req, res) => {
   try {
     const invData = await Product.findAll({
       include: [
@@ -28,6 +34,28 @@ router.get('/inventory', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('inventory', {
       inventory,
+      layout: 'main',
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/orders', async (req, res) => {
+  try {
+    const orderData = await OrderDetails.findAll({
+      include: [
+        {
+          model: OrderItems,
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const orders = orderData.map((order) => order.get({ plain: true }));
+    // Pass serialized data and session flag into template
+    res.render('orders', {
+      orders,
       layout: 'main',
     });
   } catch (err) {
