@@ -1,6 +1,14 @@
 [
 	{
 		"user_id": 1,
+		"total": 1049.99
+	},
+	{
+		"user_id": 2,
+		"total": 1
+	},
+	{
+		"user_id": 3,
 		"total": 1
 	}
 ]
