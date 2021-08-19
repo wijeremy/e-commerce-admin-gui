@@ -1,10 +1,8 @@
 {{#each inventory as |item|}}
-  <tr>
-    <td class='sorting_1'>{{item.name}}</td>
-    <td>{{item.desc}}</td>
-    <td></td>
-    <td>${{item.price}}</td>
-    <td>{{item.quantity}}</td>
-    <td>text</td>
-  </tr>
+<tr>
+  <td class='sorting_1'>{{item.name}}</td>
+  <td>${{item.price}}</td>
+  <td>{{item.inventory.quantity}}</td>
+  <td class="btn btn-danger">DELETE</td>
+</tr>
 {{/each}}
