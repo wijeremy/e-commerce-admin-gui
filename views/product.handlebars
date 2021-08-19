@@ -23,11 +23,30 @@
   </div>
   <div class='footer d-flex flex-column mt-5'>
     <div class='row r4'>
-      <div class='col-md-2 mio offset-md-4'><a href='#'>ADD TO CART</a></div>
-      <div class='col-md-2 myt'><button
-          type='button'
-          class='btn btn-outline-warning'
-        ><a href='#'>BUY NOW</a></button></div>
+      <div class='col-md-2 myt'>
+        <button
+          type='submit'
+          class='btn btn-outline-info'
+          id='add-to-cart'
+        >ADD TO CART</button>
+      </div>
     </div>
   </div>
 </div>
+<script>
+  const sendItemId = async (event) => {
+    event.preventDefault();
+    const url = document.location.href
+    const arr = url.split('/')
+    const productId = arr[arr.length -1]
+    fetch('/api/users/cart', {
+      method: 'POST',
+      body: JSON.stringify({ productId }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  document
+    .querySelector('#add-to-cart')
+    .addEventListener('click', sendItemId);
+</script>

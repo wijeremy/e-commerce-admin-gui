@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
-const { User } = require('../../models');
+const { User, UserShoppingSession } = require('../../models');
 const bcrypt = require('bcrypt');
 const auth = require('../../utils/auth');
 require('dotenv').config();
@@ -95,5 +95,20 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+router.post('/cart', async (req, res) => {
+  const product_id = parseInt(req.body.productId)
+  const {user_id} = req.session
+
+  console.log(product_id, user_id)
+
+  const session = await UserShoppingSession.findAll({ where: {user_id}})
+  if (session.length === 0) {
+    const response = await UserShoppingSession.create({user_id})
+    console.log(response)
+  } else {
+    // addToCart(product_id)
+  }
+})
 
 module.exports = router;
