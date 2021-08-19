@@ -1,38 +1,13 @@
+
 <div class='container py-4 my-4 mx-auto d-flex flex-column'>
-  <div class='header'>
-    <div class='row r1'>
-      <div class='col-md-9 abc'>
-          {{> product}}
-      </div>
-      <p class='text-right para'>Based on 250 Review</p>
-    </div>
-  </div>
-  <div class='container-body mt-4'>
-    <div class='row r3'>
-      <div class='col-md-5 p-0 klo'>
-        <ul>
-          <li>100% Quality</li>
-          <li>Free Shipping</li>
-          <li>Easy Returns</li>
-          <li>12 Months Warranty</li>
-          <li>Normal Delivery : 4-5 Days</li>
-          <li>Express Delivery : 2-3 Days</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class='footer d-flex flex-column mt-5'>
-    <div class='row r4'>
-      <div class='col-md-2 myt'>
-        <button
-          type='submit'
-          class='btn btn-outline-info'
-          id='add-to-cart'
-        >ADD TO CART</button>
-      </div>
-    </div>
+  <div class="row">
+            {{> oneprod}}      
+      
   </div>
 </div>
+
+
+
 <script>
   const sendItemId = async (event) => {
     event.preventDefault();
@@ -50,3 +25,11 @@
     .querySelector('#add-to-cart')
     .addEventListener('click', sendItemId);
 </script>
+<style>
+  .product .card {
+  flex-direction: row;
+}
+.product .card img {
+  width: 30%;
+}
+</style>
