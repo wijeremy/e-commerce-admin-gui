@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
-const { User, UserShoppingSession } = require('../../models');
+const { User, UserShoppingSession, CartItem } = require('../../models');
 const bcrypt = require('bcrypt');
 const auth = require('../../utils/auth');
 require('dotenv').config();
@@ -107,5 +107,24 @@ router.post('/cart', async (req, res) => {
     addToCart(product_id, user_id);
   }
 });
+
+router.delete('/cart', async (req, res) => {
+  const { user_id } = req.session;
+  const session = await UserShoppingSession.findAll({ where: { user_id } });
+  session.map(async (thisSession)=>{
+    const cartItems = await CartItem.findAll({where: {session_id: thisSession.id}});
+    cartItems.map((thisItem)=>{
+      CartItem.destroy({where: {id: thisItem.id}});
+    })
+  })
+  UserShoppingSession.destroy({where: {id: thisSession.id}})
+  console.log(`
+  
+  
+  WELL SOMETHING GOT DELETED
+  
+  
+  `)
+})
 
 module.exports = router;
