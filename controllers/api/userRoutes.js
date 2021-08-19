@@ -4,6 +4,7 @@ const { User, UserShoppingSession } = require('../../models');
 const bcrypt = require('bcrypt');
 const auth = require('../../utils/auth');
 require('dotenv').config();
+const { addToCart } = require('../../public/js/addToCart');
 
 // Register
 router.post('/', async (req, res) => {
@@ -97,18 +98,18 @@ router.post('/logout', (req, res) => {
 });
 
 router.post('/cart', async (req, res) => {
-  const product_id = parseInt(req.body.productId)
-  const {user_id} = req.session
+  const product_id = parseInt(req.body.productId);
+  const { user_id } = req.session;
 
-  console.log(product_id, user_id)
+  console.log(product_id, user_id);
 
-  const session = await UserShoppingSession.findAll({ where: {user_id}})
+  const session = await UserShoppingSession.findAll({ where: { user_id } });
   if (session.length === 0) {
-    const response = await UserShoppingSession.create({user_id})
-    console.log(response)
+    const response = await UserShoppingSession.create({ user_id });
+    console.log(response);
   } else {
-    // addToCart(product_id)
+    addToCart(product_id, user_id);
   }
-})
+});
 
 module.exports = router;
