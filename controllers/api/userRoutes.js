@@ -39,15 +39,12 @@ router.post('/', async (req, res) => {
     });
 
     // Create token
-    const token = jwt.sign(
-      { user_id: user._id, email },
-      process.env.TOKEN_KEY,
-      {
-        expiresIn: '2h',
-      }
-    );
-    // save user token
-    user.token = token;
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
 
     // return new user
     res.status(201).json(user);

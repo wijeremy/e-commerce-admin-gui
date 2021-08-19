@@ -12,11 +12,21 @@ const auth = require('../utils/auth');
 require('dotenv').config();
 
 router.get('/', async (req, res) => {
-  const userData = await User.findAll().catch((err) => {
-    res.json(err);
-  });
-  const users = userData.map((user) => user.get({ plain: true }));
-  res.render('homepage', { layout: 'main' });
+  try {
+    const userData = await User.findAll({});
+    const productData = await Product.findAll({});
+    // Serialize data so the template can read it
+    const users = userData.map((user) => user.get({ plain: true }));
+    const products = productData.map((product) => product.get({ plain: true }));
+    // Pass serialized data and session flag into template
+    res.render('homepage', {
+      users,
+      products,
+      layout: 'main',
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/inventory', async (req, res) => {
@@ -43,7 +53,6 @@ router.get('/inventory', async (req, res) => {
 
 router.get('/orders', async (req, res) => {
   try {
-    
     const orderData = await OrderDetails.findAll({
       include: [
         {
@@ -54,8 +63,9 @@ router.get('/orders', async (req, res) => {
 
     // Serialize data so the template can read it
     const orders = orderData.map((order) => order.get({ plain: true }));
+    console.log(orders);
     // Pass serialized data and session flag into template
-    res.render('orders',{
+    res.render('orders', {
       ...orders,
       layout: 'main',
     });
