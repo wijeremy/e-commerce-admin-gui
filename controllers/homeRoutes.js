@@ -76,6 +76,7 @@ router.get('/product/:id', async (req, res) => {
 });
 
 router.get('/user', auth, async (req, res) => {
+  console.log("REQUEST BODY: ", req.body);
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },

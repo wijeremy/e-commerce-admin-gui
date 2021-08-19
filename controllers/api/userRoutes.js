@@ -100,7 +100,6 @@ router.post('/logout', (req, res) => {
 router.post('/cart', async (req, res) => {
   const product_id = parseInt(req.body.productId);
   const { user_id } = req.session;
-
   const session = await UserShoppingSession.findAll({ where: { user_id } });
   if (session.length === 0) {
     const response = await UserShoppingSession.create({ user_id });
