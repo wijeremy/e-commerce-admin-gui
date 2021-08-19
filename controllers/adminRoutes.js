@@ -60,13 +60,12 @@ router.get('/orders', async (req, res) => {
         },
       ],
     });
-
     // Serialize data so the template can read it
     const orders = orderData.map((order) => order.get({ plain: true }));
-    console.log(orders);
+    console.log(orders[0].total);
     // Pass serialized data and session flag into template
     res.render('orders', {
-      ...orders,
+      orders,
       layout: 'main',
     });
   } catch (err) {

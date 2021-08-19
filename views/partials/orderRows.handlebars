@@ -1,18 +1,10 @@
 <tbody>
+    {{#each orders as |order|}}
     <tr class='odd'>
-        <td class='sorting_1'>Airi Satou</td>
-        <td>Accountant</td>
-        <td>Tokyo</td>
-        <td>33</td>
-        <td>2008/11/28</td>
-        <td>$162,700</td>
+        <td class='sorting_1'>{{order.user_id}}</td>
+        <td>{{order.total}}</td>
+        <td>{{order.order_items.[0].quantity}}</td>
+        <td>{{order.createdAt}}</td>
     </tr>
-    <tr class='even'>
-        <td class='sorting_1'>Angelica Ramos</td>
-        <td>Chief Executive Officer (CEO)</td>
-        <td>London</td>
-        <td>47</td>
-        <td>2009/10/09</td>
-        <td>$1,200,000</td>
-    </tr>
+    {{/each}}
 </tbody>
