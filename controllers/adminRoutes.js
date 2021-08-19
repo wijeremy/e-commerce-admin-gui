@@ -40,7 +40,6 @@ router.get('/inventory', async (req, res) => {
 			],
 		});
 
-<<<<<<< HEAD
 		// Serialize data so the template can read it
 		const inventory = invData.map((inv) => inv.get({ plain: true }));
 		console.log(inventory);
@@ -99,48 +98,6 @@ router.get('/create-item', async (req, res) => {
 	} catch (err) {
 		res.status(500).json(err);
 	}
-=======
-    // Serialize data so the template can read it
-    const inventory = invData.map((inv) => inv.get({ plain: true }));
-    // Pass serialized data and session flag into template
-    res.render('inventory', {
-      inventory,
-      layout: 'main',
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/orders', async (req, res) => {
-  try {
-    const orderData = await OrderDetails.findAll({
-      include: [
-        {
-          model: OrderItems,
-        },
-      ],
-    });
-    const itemData = await OrderItems.findAll({
-      include: [
-        {
-          model: Product,
-        },
-      ],
-    });
-    // Serialize data so the template can read it
-    const orders = orderData.map((order) => order.get({ plain: true }));
-    const items = itemData.map((item) => item.get({ plain: true }));
-    // Pass serialized data and session flag into template
-    res.render('orders', {
-      orders,
-      items,
-      layout: 'main',
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
->>>>>>> main
 });
 
 module.exports = router;
