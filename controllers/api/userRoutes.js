@@ -102,7 +102,7 @@ router.post('/cart', async (req, res) => {
   const { user_id } = req.session;
   const session = await UserShoppingSession.findAll({ where: { user_id } });
   if (session.length === 0) {
-    const response = await UserShoppingSession.create({ user_id });
+    UserShoppingSession.create({ user_id });
   } else {
     addToCart(product_id, user_id);
   }

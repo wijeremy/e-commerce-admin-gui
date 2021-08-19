@@ -19,14 +19,9 @@ const {
     const cartItem = await CartItem.findOne({where: {product_id}})
     if (stock > 0 && cartItem) {
       try {
-        await CartItem.update(
-            {quantity: cartItem.quantity + 1}, 
-            {where: {id: cartItem.id}}
-        );
-        await Inventory.update(
-            {quantity: stock - 1},
-            {where: {id: inventory.id}}
-        );
+        await cartItem.update({quantity: cartItem.quantity + 1}, );
+        await inventory.update({quantity: stock - 1});
+        console.log("new item added")
       } catch (err) {
         throw err;
       }
@@ -36,10 +31,8 @@ const {
             product_id,
             quantity: 1,
           }); 
-        await Inventory.update(
-            {quantity: stock - 1},
-            {where: {id: inventory.id}}
-        );
+          await inventory.update({quantity: stock - 1});
+        console.log('item inventory updated')
     } else {
         console.log('woops')
     }

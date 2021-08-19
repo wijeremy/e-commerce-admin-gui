@@ -94,7 +94,7 @@ router.get('/user', auth, async (req, res) => {
         for (let i = 0; i<items.length; i++){
           let data = await (await Product.findByPk(items[i].product_id)).get({plain:true})
           data.quantity = items[i].quantity
-          data.subtotal = String(parseInt(data.quantity)*parseFloat(data.price))
+          data.subtotal = String((parseInt(data.quantity)*parseFloat(data.price)).toFixed(2))
           arr.push(data);
           if (arr.length === items.length){
             resolve(arr);
