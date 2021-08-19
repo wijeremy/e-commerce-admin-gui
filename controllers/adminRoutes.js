@@ -65,19 +65,7 @@ router.get('/orders', async (req, res) => {
 
 router.get('/create-item', async (req, res) => {
 	try {
-		const orderData = await OrderDetails.findAll({
-			include: [
-				{
-					model: OrderItems,
-				},
-			],
-		});
-
-		// Serialize data so the template can read it
-		const orders = orderData.map((order) => order.get({ plain: true }));
-		// Pass serialized data and session flag into template
-		res.render('orders', {
-			...orders,
+		res.render('createItem', {
 			layout: 'main',
 		});
 	} catch (err) {
