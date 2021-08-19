@@ -41,7 +41,6 @@ router.get('/inventory', async (req, res) => {
 
     // Serialize data so the template can read it
     const inventory = invData.map((inv) => inv.get({ plain: true }));
-    console.log(inventory);
     // Pass serialized data and session flag into template
     res.render('inventory', {
       inventory,
@@ -71,7 +70,6 @@ router.get('/orders', async (req, res) => {
     // Serialize data so the template can read it
     const orders = orderData.map((order) => order.get({ plain: true }));
     const items = itemData.map((item) => item.get({ plain: true }));
-    console.log(items);
     // Pass serialized data and session flag into template
     res.render('orders', {
       orders,
