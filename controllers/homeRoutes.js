@@ -42,7 +42,6 @@ router.get('/home', auth, async (req, res) => {
     // Serialize data so the template can read it
     const products = productData.map((product) => product.get({ plain: true }));
     const user = userData.get({ plain: true });
-    console.log(user);
     // Pass serialized data and session flag into template
     res.render('home', {
       products,
@@ -100,8 +99,6 @@ router.get('/user', auth, async (req, res) => {
     };
 
     const cart = await populateCart(cartItems);
-    console.log(cart);
-    console.log(user);
     res.render('cart', {
       ...user,
       cart,

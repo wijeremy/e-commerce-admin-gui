@@ -3,6 +3,7 @@
   <td class='sorting_1'>{{item.name}}</td>
   <td>${{item.price}}</td>
   <td>{{item.inventory.quantity}}</td>
-  <td class="btn btn-danger">DELETE</td>
+  <td><a class='btn btn-danger' id='delBtn{{item.id}}' href='/admin/inventory'>DELETE</a> <a class='btn btn-warning'
+      id='updateBtn' href='/admin/inventory'>UPDATE</a></td>
 </tr>
 {{/each}}

@@ -1,35 +1,62 @@
-<div class="col-12 col-sm-5">
-                        
-          <img class="w-100" src="{{product.img}}" alt="{{product.name}}" />
-          <p>Reviews</p>
-                            
-          <div class="d-flex flex-row">
-              <div class="stars"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div> <span class="ml-1 font-weight-bold">4.6</span> 
-                <div class="badges"> <span class="badge bg-light ">All (230)</span> <span class="badge bg-light "> <i class="fa fa-image"></i> 23 </span> <span class="badge bg-light "> <i class="fa fa-comments-o"></i> 23 </span> <span class="badge bg-warning"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <span class="ml-1">2,123</span> </span> </div>
-          </div>
-               
-      </div>
-      <div class="col-12 col-sm-7">
-        <div class="d-flex flex-row">
-            <div class="stars"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div> <span class="ml-1 font-weight-bold">4.6</span>
-        </div>
-        <h5 class='fw-bolder'>{{product.name}}</h5>
-        <!--Product description -->
-        <p>{{product.desc}}</p>
-        <!-- Product price-->
-        <p><strong>${{product.price}}</strong></p>
+<div class='col-12 col-sm-5'>
 
-        <button type='submit' class='btn btn-info' id='add-to-cart'>ADD TO CART</button>
-        <hr>
-        <p class="pt-4">
-            <ul>
-            <li>100% Quality</li>
-            <li>Free Shipping</li>
-            <li>Easy Returns</li>
-            <li>12 Months Warranty</li>
-            <li>Normal Delivery : 4-5 Days</li>
-            <li>Express Delivery : 2-3 Days</li>
-          </ul>
-        </p>
-                        
-      </div>
+  <img class='w-100' src='{{product.img}}' alt='{{product.name}}' />
+  <p>Reviews</p>
+
+  <div class='d-flex flex-row'>
+    <div class='stars'>
+      <i class='fa fa-star'></i>
+      <i class='fa fa-star'></i>
+      <i class='fa fa-star'></i>
+    </div>
+    <span class='ml-1 font-weight-bold'>4.6</span>
+    <div class='badges'>
+      <span class='badge bg-light'>All (230)</span>
+      <span class='badge bg-light'> <i class='fa fa-image'></i> 23 </span>
+      <span class='badge bg-light'> <i class='fa fa-comments-o'></i> 23 </span>
+      <span class='badge bg-warning'>
+        <i class='fa fa-star'></i>
+        <i class='fa fa-star'></i>
+        <i class='fa fa-star'></i>
+        <i class='fa fa-star'></i>
+        <span class='ml-1'>2,123</span>
+      </span>
+    </div>
+  </div>
+
+</div>
+<div class='col-12 col-sm-7'>
+  <div class='d-flex flex-row'>
+    <div class='stars'>
+      <i class='fa fa-star'></i>
+      <i class='fa fa-star'></i>
+      <i class='fa fa-star'></i>
+      <i class='fa fa-star'></i>
+    </div>
+    <span class='ml-1 font-weight-bold'>4.6</span>
+  </div>
+  <h5 class='fw-bolder'>{{product.name}}</h5>
+  <!--Product description -->
+  <p>{{product.desc}}</p>
+  <!-- Product price-->
+  <p><strong>${{product.price}}</strong></p>
+
+  <button
+    type='submit'
+    class='btn btn-info'
+    id='add-to-cart'
+    href='/api/users/cart'
+  >ADD TO CART</button>
+  <hr />
+  <p class='pt-4'>
+    <ul>
+      <li>100% Quality</li>
+      <li>Free Shipping</li>
+      <li>Easy Returns</li>
+      <li>12 Months Warranty</li>
+      <li>Normal Delivery : 4-5 Days</li>
+      <li>Express Delivery : 2-3 Days</li>
+    </ul>
+  </p>
+
+</div>
