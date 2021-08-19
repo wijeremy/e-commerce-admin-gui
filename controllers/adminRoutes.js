@@ -7,6 +7,7 @@ const {
 	User,
 	OrderDetails,
 	OrderItems,
+	Category,
 } = require('../models');
 const auth = require('../utils/auth');
 require('dotenv').config();
@@ -85,7 +86,13 @@ router.get('/orders', async (req, res) => {
 
 router.get('/create-item', async (req, res) => {
 	try {
+		const categoryData = await Category.findAll();
+		const categorys = categoryData.map((category) =>
+			category.get({ plain: true })
+		);
+
 		res.render('createItem', {
+			categorys,
 			layout: 'main',
 		});
 	} catch (err) {
