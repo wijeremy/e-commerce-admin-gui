@@ -83,9 +83,27 @@ router.get('/user', auth, async (req, res) => {
       include: [{ model: UserShoppingSession }],
     });
     const user = userData.get({ plain: true });
-    console.log(user);
+
+    const session_id = user.user_shopping_session.id;
+    const cartItems = await CartItem.findAll({ where: { session_id } });
+
+    const populateCart = (items) => {
+      return new Promise(async (resolve, reject) => {
+        await items.map(async (item) => {
+          const productData = await Product.findByPk(item.product_id);
+          const product = productData.get({ plain: true });
+          product.quantity = item.quantity;
+          resolve(product);
+          reject((err) => console.log(err));
+        });
+      });
+    };
+
+    const cart = await populateCart(cartItems);
+
     res.render('cart', {
       ...user,
+      cart,
       layout: 'user',
       logged_in: true,
     });
