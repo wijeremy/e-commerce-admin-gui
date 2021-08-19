@@ -100,7 +100,8 @@ router.get('/user', auth, async (req, res) => {
     };
 
     const cart = await populateCart(cartItems);
-
+    console.log(cart);
+    console.log(user);
     res.render('cart', {
       ...user,
       cart,
