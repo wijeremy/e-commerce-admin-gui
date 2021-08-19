@@ -10,9 +10,8 @@
 <script>
   const sendItemId = async (event) => {
     event.preventDefault();
-    const url = document.location.href
-    const arr = url.split('/')
-    const productId = arr[arr.length - 1]
+    const productId =   document.querySelector('#add-to-cart').dataset.id
+    console.log(productId)
     fetch('/api/users/cart', {
       method: 'POST',
       body: JSON.stringify({ productId }),
