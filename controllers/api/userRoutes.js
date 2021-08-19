@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
-const { User } = require('../../models');
+const { User, UserShoppingSession } = require('../../models');
 const bcrypt = require('bcrypt');
 const auth = require('../../utils/auth');
 require('dotenv').config();
+const { addToCart } = require('../../public/js/addToCart');
 
 // Register
 router.post('/', async (req, res) => {
@@ -39,15 +40,12 @@ router.post('/', async (req, res) => {
     });
 
     // Create token
-    const token = jwt.sign(
-      { user_id: user._id, email },
-      process.env.TOKEN_KEY,
-      {
-        expiresIn: '2h',
-      }
-    );
-    // save user token
-    user.token = token;
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
 
     // return new user
     res.status(201).json(user);
@@ -96,6 +94,21 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+router.post('/cart', async (req, res) => {
+  const product_id = parseInt(req.body.productId);
+  const { user_id } = req.session;
+
+  console.log(product_id, user_id);
+
+  const session = await UserShoppingSession.findAll({ where: { user_id } });
+  if (session.length === 0) {
+    const response = await UserShoppingSession.create({ user_id });
+    console.log(response);
+  } else {
+    addToCart(product_id, user_id);
   }
 });
 

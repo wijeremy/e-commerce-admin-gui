@@ -1,0 +1,14 @@
+<tbody>
+  {{#each orders as |order|}}
+    <tr class='odd'>
+      <td class='sorting_1'>{{order.user_id}}</td>
+      <td>{{order.total}}</td>
+      <td>
+        {{#each order.order_items as |order_item|}}
+          {{order_item.quantity}}
+        {{/each}}
+      </td>
+      <td>{{order.createdAt}}</td>
+    </tr>
+  {{/each}}
+</tbody>
