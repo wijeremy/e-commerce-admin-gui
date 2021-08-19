@@ -87,21 +87,28 @@ router.get('/user', auth, async (req, res) => {
     const session_id = user.user_shopping_session.id;
     const cartItems = await CartItem.findAll({ where: { session_id } });
 
-    const populateCart = (items) => {
-      return new Promise(async (resolve, reject) => {
-        await items.map(async (item) => {
-          const productData = await Product.findByPk(item.product_id);
-          const product = productData.get({ plain: true });
-          product.quantity = item.quantity;
-          resolve(product);
-          reject((err) => console.log(err));
-        });
-      });
-    };
 
-    const cart = await populateCart(cartItems);
+const populateCart = (items) => {
+  return new Promise (async (resolve,reject) => {
+    const arr = [];
+    for (let i = 0; i<items.length; i++){
+      let data = await (await Product.findByPk(items[i].product_id)).get({plain:true})
+      data.quantity = items[i].quantity
+      arr.push(data);
+      if (arr.length === items.length){
+        resolve(arr);
+      }
+    }
+    reject((err)=>console.log(err))
+  })
+}
+const cart = await populateCart(cartItems)
+console.log(cart)
+    
+
+    // console.log(cart);
     res.render('cart', {
-      ...user,
+      // ...user,
       cart,
       layout: 'user',
       logged_in: true,
